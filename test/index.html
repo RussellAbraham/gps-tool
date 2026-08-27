@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPS Test</title>
+
+    <title>GPS Hardware Test</title>
 </head>
+
 <body>
+
     <main>
-        <h1>GPS Test</h1>
-        <p>This is a simple GPS test page.</p>
+        <h1>GPS Hardware Test</h1>
+
+        <p id="status">GPS not started.</p>
+
+        <button id="start-gps">Start GPS</button>
+
+        <dl>
+            <dt>Latitude</dt>
+            <dd id="latitude">—</dd>
+
+            <dt>Longitude</dt>
+            <dd id="longitude">—</dd>
+
+            <dt>Accuracy</dt>
+            <dd id="accuracy">—</dd>
+        </dl>
     </main>
+
+    <script src="gps-test.js"></script>
+
 </body>
 </html>
