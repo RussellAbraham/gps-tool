@@ -1,0 +1,28 @@
+{
+  "name": "gps-tool",
+  "version": "1.0.0",
+  "description": "Mobile GPS navigation and field utility PWA",
+  "main": "index.js",
+  "bin": {
+    "gps-tool": "bin/server.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "node bin/watch.js",
+    "server": "node bin/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RussellAbraham/gps-tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RussellAbraham/gps-tool/issues"
+  },
+  "homepage": "https://github.com/RussellAbraham/gps-tool#readme"
+}
