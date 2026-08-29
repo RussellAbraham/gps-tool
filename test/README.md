@@ -41,6 +41,9 @@ test/
 ├── index.html
 └── gps-test.js
 ```
+**GPS Metrics Test**
+
+https://d-75067783620260831-01a04b3f-d41b-7d77-8f46-bca7722a2fd3.codepen.dev/
 
 CodePen is used specifically as an HTTPS testing environment for physical mobile devices. Tests developed there can subsequently be brought back into this directory and integrated into the application.
 

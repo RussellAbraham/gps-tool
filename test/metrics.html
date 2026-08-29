@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./metrics.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metrics</title>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <div class="eyebrow">Device telemetry</div>
+          <h1>GPS Diagnostic</h1>
+          <p class="subtitle">Browser hardware and positioning test suite</p>
+        </div>
+
+        <div id="status" class="status">
+          <span class="status-dot"></span>
+          <span id="status-text">READY</span>
+        </div>
+      </header>
+
+      <div class="controls">
+        <button id="acquire" class="primary">Acquire Metrics</button>
+
+        <button id="start-gps">Start GPS Watch</button>
+
+        <button id="stop-gps" class="danger" disabled>Stop GPS</button>
+      </div>
+
+      <main class="grid">
+        <!-- POSITION -->
+        <section class="card wide">
+          <div class="card-header">
+            <span class="card-title">Position</span>
+            <span id="position-quality" class="muted">NO FIX</span>
+          </div>
+
+          <div class="card-body">
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-label">Latitude</div>
+                <div id="latitude" class="metric-value">—</div>
+                <div id="latitude-raw" class="metric-sub">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Longitude</div>
+                <div id="longitude" class="metric-value">—</div>
+                <div id="longitude-raw" class="metric-sub">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Horizontal Accuracy</div>
+                <div id="accuracy" class="metric-value large">—</div>
+                <div id="accuracy-quality" class="metric-sub">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Altitude</div>
+                <div id="altitude" class="metric-value">—</div>
+                <div id="altitude-accuracy" class="metric-sub">—</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MOVEMENT -->
+        <section class="card">
+          <div class="card-header">
+            <span class="card-title">Movement</span>
+          </div>
+
+          <div class="card-body">
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-label">Speed</div>
+                <div id="speed" class="metric-value large">—</div>
+                <div id="speed-ms" class="metric-sub">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Heading</div>
+                <div id="heading" class="metric-value large">—</div>
+                <div id="heading-degrees" class="metric-sub">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">GPS Updates</div>
+                <div id="update-count" class="metric-value">0</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Position Age</div>
+                <div id="position-age" class="metric-value">—</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DEVICE -->
+        <section class="card">
+          <div class="card-header">
+            <span class="card-title">Device</span>
+          </div>
+
+          <div class="card-body">
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-label">Battery</div>
+                <div id="battery" class="metric-value large">—</div>
+                <div id="battery-state" class="metric-sub">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Memory</div>
+                <div id="memory" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">CPU Threads</div>
+                <div id="cpu" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Screen</div>
+                <div id="screen" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Pixel Ratio</div>
+                <div id="pixel-ratio" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Orientation</div>
+                <div id="orientation" class="metric-value">—</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SENSORS -->
+        <section class="card">
+          <div class="card-header">
+            <span class="card-title">Motion Sensors</span>
+          </div>
+
+          <div class="card-body">
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-label">Acceleration X</div>
+                <div id="accel-x" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Acceleration Y</div>
+                <div id="accel-y" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Acceleration Z</div>
+                <div id="accel-z" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Rotation Alpha</div>
+                <div id="rotation-alpha" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Rotation Beta</div>
+                <div id="rotation-beta" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Rotation Gamma</div>
+                <div id="rotation-gamma" class="metric-value">—</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- NETWORK -->
+        <section class="card">
+          <div class="card-header">
+            <span class="card-title">Network</span>
+          </div>
+
+          <div class="card-body">
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-label">Connection</div>
+                <div id="connection-type" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Effective Type</div>
+                <div id="effective-type" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Downlink</div>
+                <div id="downlink" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">RTT</div>
+                <div id="rtt" class="metric-value">—</div>
+              </div>
+
+              <div class="metric">
+                <div class="metric-label">Online</div>
+                <div id="online" class="metric-value">—</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CANADIAN CITIES -->
+        <section class="card">
+          <div class="card-header">
+            <span class="card-title">Canadian Reference Distances</span>
+          </div>
+
+          <div class="card-body">
+            <div id="nearest-city" class="metric" style="margin-bottom: 10px">
+              <div class="metric-label">Nearest Reference City</div>
+              <div id="nearest-city-name" class="metric-value">—</div>
+              <div id="nearest-city-distance" class="metric-sub">—</div>
+            </div>
+
+            <div id="city-list" class="city-list">
+              <div class="muted">Acquire a GPS position first.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CAPABILITIES -->
+        <section class="card wide">
+          <div class="card-header">
+            <span class="card-title">Browser Capabilities</span>
+          </div>
+
+          <div class="card-body">
+            <div id="capabilities" class="capability-list"></div>
+          </div>
+        </section>
+
+        <!-- RAW -->
+        <section class="card wide">
+          <div class="card-header">
+            <span class="card-title">Latest Raw Snapshot</span>
+          </div>
+
+          <div class="card-body">
+            <div id="raw-output" class="raw">No snapshot acquired.</div>
+          </div>
+        </section>
+      </main>
+
+      <footer>Diagnostic data is collected locally by this test page.</footer>
+    </div>
+    <script src="./metrics-test.js"></script>
+  </body>
+</html>
